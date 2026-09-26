@@ -816,6 +816,10 @@ function pedirWhatsApp(id) {
 
         `🏷️ ${producto.familia || "No especificada"}%0A%0A` +
 
+        (producto.imagen
+            ? `🖼️ Ver imagen: ${producto.imagen}%0A%0A`
+            : "") +
+
         `¿Podrían brindarme más información?`;
 
 
@@ -829,7 +833,6 @@ function pedirWhatsApp(id) {
     );
 
 }
-
 
 /* =========================================================
    FORMATEAR PRECIO
