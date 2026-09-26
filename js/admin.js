@@ -973,9 +973,10 @@ function renderizarProductosAdmin() {
 
                         <td>
                             Bs.
-                            ${formatearPrecio(
-                                producto.precio
-                            )}
+                            ${Number(producto.precio).toLocaleString("es-BO", {
+                                minimumFractionDigits: 0,
+                                maximumFractionDigits: 2
+                            })}
                         </td>
 
                         <td>
