@@ -1,0 +1,998 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Administración | Fragancias Elegantes</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+
+    <link
+        rel="preconnect"
+        href="https://fonts.gstatic.com"
+        crossorigin
+    >
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700&family=Montserrat:wght@400;500;600;700&display=swap"
+        rel="stylesheet"
+    >
+
+    <!-- Font Awesome -->
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+    >
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/admin.css">
+
+</head>
+
+
+<body>
+
+
+    <!-- =====================================================
+         LOGIN
+    ====================================================== -->
+
+    <section
+        id="login"
+        class="login"
+    >
+
+        <div class="login-card">
+
+            <div class="login-icon">
+                <img src="imagenes/loida.png" alt="Loida Puma">
+            </div>
+
+
+            <span class="login-subtitulo">
+                FRAGANCIAS ELEGANTES
+            </span>
+
+
+            <h1>
+                Administración
+            </h1>
+
+
+            <p>
+                Ingresa la contraseña para continuar.
+            </p>
+
+
+            <form id="formLogin">
+
+                <div class="campo-password">
+
+                    <i class="fa-solid fa-lock"></i>
+
+                    <input
+                        type="password"
+                        id="password"
+                        placeholder="Contraseña"
+                        autocomplete="current-password"
+                    >
+
+                    <button
+                        type="button"
+                        id="mostrarPassword"
+                        aria-label="Mostrar contraseña"
+                    >
+
+                        <i class="fa-solid fa-eye"></i>
+
+                    </button>
+
+                </div>
+
+
+                <button
+                    type="submit"
+                    class="btn-principal"
+                >
+
+                    <i class="fa-solid fa-right-to-bracket"></i>
+
+                    Ingresar
+
+                </button>
+
+
+                <p
+                    id="errorLogin"
+                    class="error-login"
+                ></p>
+
+            </form>
+
+
+            <a
+                href="index.html"
+                class="volver-catalogo"
+            >
+
+                <i class="fa-solid fa-arrow-left"></i>
+
+                Volver al catálogo
+
+            </a>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =====================================================
+         PANEL ADMINISTRATIVO
+    ====================================================== -->
+
+    <section
+        id="panel"
+        class="panel oculto"
+    >
+
+
+        <!-- =================================================
+             HEADER ADMIN
+        ================================================== -->
+
+        <header class="admin-header">
+
+            <div>
+
+                <span>
+                    FRAGANCIAS ELEGANTES
+                </span>
+
+                <h1>
+                    Panel administrativo
+                </h1>
+
+            </div>
+
+
+            <div class="admin-header-acciones">
+
+                <a
+                    href="index.html"
+                    class="btn-header"
+                    title="Ver catálogo"
+                >
+
+                    <i class="fa-solid fa-store"></i>
+
+                    <span>
+                        Catálogo
+                    </span>
+
+                </a>
+
+
+                <button
+                    id="btnTemaAdmin"
+                    class="btn-header btn-tema-admin"
+                    type="button"
+                    title="Cambiar tema"
+                    aria-label="Cambiar tema"
+                >
+                    ☀️
+                </button>
+
+
+                <button
+                    id="btnCerrarSesion"
+                    class="btn-header btn-salir"
+                    title="Cerrar sesión"
+                >
+
+                    <i class="fa-solid fa-right-from-bracket"></i>
+
+                    <span>
+                        Salir
+                    </span>
+
+                </button>
+
+            </div>
+
+        </header>
+
+
+
+        <!-- =================================================
+             CONTENIDO
+        ================================================== -->
+
+        <main class="admin-contenido">
+
+
+            <!-- =================================================
+                 ESTADÍSTICAS
+            ================================================== -->
+
+            <section class="estadisticas">
+
+
+                <div class="estadistica">
+
+                    <div class="estadistica-icono">
+                        <i class="fa-solid fa-box"></i>
+                    </div>
+
+                    <div>
+
+                        <span>
+                            PRODUCTOS
+                        </span>
+
+                        <strong id="totalProductos">
+                            0
+                        </strong>
+
+                    </div>
+
+                </div>
+
+
+                <div class="estadistica">
+
+                    <div class="estadistica-icono">
+                        <i class="fa-solid fa-tags"></i>
+                    </div>
+
+                    <div>
+
+                        <span>
+                            CATEGORÍAS
+                        </span>
+
+                        <strong id="totalCategorias">
+                            0
+                        </strong>
+
+                    </div>
+
+                </div>
+
+
+            </section>
+
+
+
+            <!-- =================================================
+                 PESTAÑAS
+            ================================================== -->
+
+            <nav class="tabs">
+
+                <button
+                    class="tab activa"
+                    data-tab="productos"
+                >
+
+                    <i class="fa-solid fa-box"></i>
+
+                    Productos
+
+                </button>
+
+
+                <button
+                    class="tab"
+                    data-tab="categorias"
+                >
+
+                    <i class="fa-solid fa-tags"></i>
+
+                    Categorías
+
+                </button>
+
+            </nav>
+
+
+
+            <!-- =================================================
+                 SECCIÓN PRODUCTOS
+            ================================================== -->
+
+            <section
+                id="tab-productos"
+                class="tab-contenido activa"
+            >
+
+                <div class="seccion-header">
+
+                    <div>
+
+                        <span>
+                            INVENTARIO
+                        </span>
+
+                        <h2>
+                            Productos
+                        </h2>
+
+                    </div>
+
+
+                    <button
+                        id="btnNuevoProducto"
+                        class="btn-principal"
+                    >
+
+                        <i class="fa-solid fa-plus"></i>
+
+                        Nuevo producto
+
+                    </button>
+
+                </div>
+
+
+                <!-- BUSCAR PRODUCTOS -->
+
+                <div class="admin-buscador">
+
+                    <i class="fa-solid fa-magnifying-glass"></i>
+
+                    <input
+                        type="text"
+                        id="buscarAdmin"
+                        placeholder="Buscar producto..."
+                    >
+
+                </div>
+
+
+                <!-- TABLA -->
+
+                <div class="tabla-contenedor">
+
+                    <table>
+
+                        <thead>
+
+                            <tr>
+
+                                <th>
+                                    Producto
+                                </th>
+
+                                <th>
+                                    Categoría
+                                </th>
+
+                                <th>
+                                    Precio
+                                </th>
+
+                                <th>
+                                    Tipo
+                                </th>
+
+                                <th>
+                                    Acciones
+                                </th>
+
+                            </tr>
+
+                        </thead>
+
+
+                        <tbody id="tablaProductos">
+
+                            <!-- Productos -->
+
+                        </tbody>
+
+                    </table>
+
+                </div>
+
+            </section>
+
+
+
+            <!-- =================================================
+                 SECCIÓN CATEGORÍAS
+            ================================================== -->
+
+            <section
+                id="tab-categorias"
+                class="tab-contenido"
+            >
+
+                <div class="seccion-header">
+
+                    <div>
+
+                        <span>
+                            ORGANIZACIÓN
+                        </span>
+
+                        <h2>
+                            Categorías
+                        </h2>
+
+                    </div>
+
+
+                    <button
+                        id="btnNuevaCategoria"
+                        class="btn-principal"
+                    >
+
+                        <i class="fa-solid fa-plus"></i>
+
+                        Nueva categoría
+
+                    </button>
+
+                </div>
+
+
+                <div
+                    id="listaCategorias"
+                    class="lista-categorias"
+                >
+
+                    <!-- Categorías -->
+
+                </div>
+
+            </section>
+
+
+        </main>
+
+    </section>
+
+
+
+    <!-- =====================================================
+         MODAL PRODUCTO
+    ====================================================== -->
+
+    <div
+        id="modalProductoAdmin"
+        class="modal-admin"
+    >
+
+        <div class="modal-admin-fondo"></div>
+
+
+        <div class="modal-admin-contenido">
+
+            <button
+                class="btn-cerrar-admin"
+                id="cerrarModalProducto"
+            >
+
+                <i class="fa-solid fa-xmark"></i>
+
+            </button>
+
+
+            <div class="modal-titulo">
+
+                <span>
+                    INVENTARIO
+                </span>
+
+                <h2 id="tituloModalProducto">
+                    Nuevo producto
+                </h2>
+
+            </div>
+
+
+            <form id="formProducto">
+
+                <input
+                    type="hidden"
+                    id="productoId"
+                >
+
+
+                <div class="form-grid">
+
+
+                    <!-- NOMBRE -->
+
+                    <div class="campo">
+
+                        <label for="nombre">
+                            Nombre *
+                        </label>
+
+                        <input
+                            type="text"
+                            id="nombre"
+                            required
+                        >
+
+                    </div>
+
+
+                    <!-- PRECIO -->
+
+                    <div class="campo">
+
+                        <label for="precio">
+                            Precio (Bs.) *
+                        </label>
+
+                        <input
+                            type="number"
+                            id="precio"
+                            min="0"
+                            step="0.01"
+                            required
+                        >
+
+                    </div>
+
+
+                    <!-- TIPO -->
+
+                    <div class="campo">
+
+                        <label for="tipo">
+                            Tipo / Presentación
+                        </label>
+
+                        <input
+                            type="text"
+                            id="tipo"
+                            placeholder="Eau de Toilette • 75 ml"
+                        >
+
+                    </div>
+
+
+                    <!-- CATEGORÍA -->
+
+                    <div class="campo">
+
+                        <label for="categoria">
+                            Categoría *
+                        </label>
+
+                        <select
+                            id="categoria"
+                            required
+                        >
+
+                            <option value="">
+                                Seleccionar categoría
+                            </option>
+
+                        </select>
+
+                    </div>
+
+
+                    <!-- SUBCATEGORÍA -->
+
+                    <div class="campo">
+
+                        <label for="subcategoria">
+                            Subcategoría
+                        </label>
+
+                        <input
+                            type="text"
+                            id="subcategoria"
+                            placeholder="dulce"
+                        >
+
+                    </div>
+
+
+                    <!-- FAMILIA -->
+
+                    <div class="campo">
+
+                        <label for="familia">
+                            Familia
+                        </label>
+
+                        <input
+                            type="text"
+                            id="familia"
+                            placeholder="Dulce Seductor"
+                        >
+
+                    </div>
+
+
+                    <!-- IMAGEN -->
+
+                    <div class="campo campo-completo">
+
+                        <label for="imagen">
+                            Imagen del producto
+                        </label>
+
+                        <input
+                            type="text"
+                            id="imagen"
+                            placeholder="URL de la imagen o selecciona una foto"
+                        >
+
+                        <input
+                            type="file"
+                            id="archivoImagen"
+                            accept="image/*"
+                        >
+
+                        <small id="estadoImagen">
+                            Puedes pegar una URL o seleccionar una imagen de tu galería.
+                        </small>
+
+                        <div
+                            id="vistaPreviaImagen"
+                            class="vista-previa-imagen oculto"
+                        >
+
+                            <img
+                                id="previewImagen"
+                                src=""
+                                alt="Vista previa"
+                            >
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- DESCRIPCIÓN -->
+
+                    <div class="campo campo-completo">
+
+                        <label for="descripcion">
+                            Descripción
+                        </label>
+
+                        <textarea
+                            id="descripcion"
+                            rows="3"
+                        ></textarea>
+
+                    </div>
+
+
+                    <!-- CARACTERÍSTICAS -->
+
+                    <div class="campo campo-completo">
+
+                        <label for="caracteristicas">
+                            Características
+                        </label>
+
+                        <textarea
+                            id="caracteristicas"
+                            rows="3"
+                        ></textarea>
+
+                    </div>
+
+
+                    <!-- IDEAL -->
+
+                    <div class="campo campo-completo">
+
+                        <label for="ideal">
+                            Ideal para
+                        </label>
+
+                        <textarea
+                            id="ideal"
+                            rows="3"
+                        ></textarea>
+
+                    </div>
+
+
+                </div>
+
+
+                <div class="form-acciones">
+
+                    <button
+                        type="button"
+                        class="btn-secundario"
+                        id="cancelarProducto"
+                    >
+                        Cancelar
+                    </button>
+
+
+                    <button
+                        type="submit"
+                        class="btn-principal"
+                    >
+
+                        <i class="fa-solid fa-floppy-disk"></i>
+
+                        Guardar producto
+
+                    </button>
+
+                </div>
+
+            </form>
+
+        </div>
+
+    </div>
+
+
+
+    <!-- =====================================================
+         MODAL CATEGORÍA
+    ====================================================== -->
+
+    <div
+        id="modalCategoria"
+        class="modal-admin"
+    >
+
+        <div class="modal-admin-fondo"></div>
+
+
+        <div class="modal-admin-contenido modal-pequeno">
+
+            <button
+                class="btn-cerrar-admin"
+                id="cerrarModalCategoria"
+            >
+
+                <i class="fa-solid fa-xmark"></i>
+
+            </button>
+
+
+            <div class="modal-titulo">
+
+                <span>
+                    CATEGORÍAS
+                </span>
+
+                <h2 id="tituloModalCategoria">
+                    Nueva categoría
+                </h2>
+
+            </div>
+
+
+            <form id="formCategoria">
+
+                <input
+                    type="hidden"
+                    id="categoriaId"
+                >
+
+
+                <div class="campo">
+
+                    <label for="nombreCategoria">
+                        Nombre *
+                    </label>
+
+                    <input
+                        type="text"
+                        id="nombreCategoria"
+                        placeholder="Ej. Perfumería"
+                        required
+                    >
+
+                </div>
+
+
+                <div class="campo">
+
+                    <label for="slugCategoria">
+                        Slug *
+                    </label>
+
+                    <input
+                        type="text"
+                        id="slugCategoria"
+                        placeholder="Ej. perfumeria"
+                        required
+                    >
+
+                </div>
+
+
+                <div class="form-acciones">
+
+                    <button
+                        type="button"
+                        class="btn-secundario"
+                        id="cancelarCategoria"
+                    >
+                        Cancelar
+                    </button>
+
+
+                    <button
+                        type="submit"
+                        class="btn-principal"
+                    >
+
+                        <i class="fa-solid fa-floppy-disk"></i>
+
+                        Guardar
+
+                    </button>
+
+                </div>
+
+            </form>
+
+        </div>
+
+    </div>
+
+
+
+    <!-- =====================================================
+         MODAL CONFIRMACIÓN DE ELIMINACIÓN
+    ====================================================== -->
+
+    <div
+        id="modalConfirmacion"
+        class="modal-confirmacion"
+    >
+
+        <!-- FONDO -->
+
+        <div class="modal-confirmacion-fondo"></div>
+
+
+        <!-- CONTENIDO -->
+
+        <div class="modal-confirmacion-contenido">
+
+            <!-- ICONO -->
+
+            <div class="confirmacion-icono">
+
+                <i class="fa-solid fa-trash-can"></i>
+
+            </div>
+
+
+            <!-- TEXTO -->
+
+            <div class="confirmacion-texto">
+
+                <span id="confirmacionTipo">
+                    CONFIRMAR ACCIÓN
+                </span>
+
+
+                <h2 id="confirmacionTitulo">
+                    ¿Eliminar elemento?
+                </h2>
+
+
+                <p id="confirmacionMensaje">
+                    Esta acción no se puede deshacer.
+                </p>
+
+            </div>
+
+
+            <!-- BOTONES -->
+
+            <div class="confirmacion-acciones">
+
+                <button
+                    type="button"
+                    id="cancelarConfirmacion"
+                    class="btn-confirmacion-cancelar"
+                >
+
+                    Cancelar
+
+                </button>
+
+
+                <button
+                    type="button"
+                    id="aceptarConfirmacion"
+                    class="btn-confirmacion-eliminar"
+                >
+
+                    <i class="fa-solid fa-trash-can"></i>
+
+                    Eliminar
+
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- =====================================================
+         NOTIFICACIÓN ADMINISTRATIVA
+    ====================================================== -->
+
+    <div
+        id="notificacionAdmin"
+        class="notificacion-admin"
+        role="status"
+        aria-live="polite"
+    >
+
+        <div
+            id="notificacionIcono"
+            class="notificacion-icono"
+        >
+
+            <i class="fa-solid fa-check"></i>
+
+        </div>
+
+
+        <div class="notificacion-contenido">
+
+            <span id="notificacionTipo">
+                ÉXITO
+            </span>
+
+            <p id="notificacionMensaje"></p>
+
+        </div>
+
+
+        <button
+            type="button"
+            id="cerrarNotificacion"
+            class="notificacion-cerrar"
+            aria-label="Cerrar notificación"
+        >
+
+            <i class="fa-solid fa-xmark"></i>
+
+        </button>
+
+    </div>
+
+
+
+    <!-- =====================================================
+         SCRIPTS
+    ====================================================== -->
+
+    <script
+        src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"
+    ></script>
+
+    <script src="js/supabase.js"></script>
+
+    <script src="js/admin.js"></script>
+
+
+</body>
+
+</html>

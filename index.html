@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <meta
+        name="description"
+        content="Catálogo de perfumes y productos de cuidado personal."
+    >
+
+    <title>Fragancias Elegantes</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700&family=Montserrat:wght@400;500;600;700&display=swap"
+        rel="stylesheet"
+    >
+
+    <!-- Iconos -->
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+    >
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/estilos.css">
+
+
+</head>
+
+
+<body>
+
+
+    <!-- =====================================================
+         ENCABEZADO
+    ====================================================== -->
+
+    <header class="header">
+
+        <div class="header-contenido">
+
+            <div class="logo">
+
+                <img src="imagenes/loida.png" alt="Loida Puma">
+
+                <div>
+
+                    <h1>
+                        LOIDA
+                    </h1>
+
+                    <span>
+                        PUMA
+                    </span>
+
+                </div>
+
+            </div>
+
+            
+            <div class="acciones-header">
+
+                <a href="admin.html" class="btn-admin">
+                    ADM
+                </a>
+
+                <button
+                    id="btnTema"
+                    class="btn-tema"
+                    aria-label="Cambiar tema"
+                >
+                    <i class="fa-solid fa-moon"></i>
+                </button>
+
+            </div>
+
+        </div>
+
+    </header>
+
+
+
+    <!-- =====================================================
+         CONTENIDO PRINCIPAL
+    ====================================================== -->
+
+    <main>
+
+
+        <!-- =================================================
+             PRESENTACIÓN
+        ================================================== -->
+
+        <section class="presentacion">
+
+            <span class="presentacion-linea">
+                COLECCIÓN EXCLUSIVA
+            </span>
+
+            <h2>
+                LOIDA PUMA<br>
+                <!--<span>Puma</span>-->
+            </h2>
+
+            <p>
+                Descubre perfumes y productos seleccionados
+                para acompañar cada momento.
+            </p>
+
+        </section>
+
+
+
+        <!-- =================================================
+             BUSCADOR
+        ================================================== -->
+
+        <section class="seccion-buscador">
+
+            <div class="buscador">
+
+                <i class="fa-solid fa-magnifying-glass"></i>
+
+                <input
+                    type="text"
+                    id="buscador"
+                    placeholder="Buscar un producto..."
+                    autocomplete="off"
+                >
+
+                <button
+                    id="btnLimpiarBusqueda"
+                    class="btn-limpiar"
+                    aria-label="Limpiar búsqueda"
+                >
+
+                    <i class="fa-solid fa-xmark"></i>
+
+                </button>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =================================================
+             CATEGORÍAS
+        ================================================== -->
+
+        <section class="seccion-categorias">
+
+            <div class="titulo-seccion">
+
+                <span>
+                    EXPLORAR
+                </span>
+
+                <h3>
+                    Categorías
+                </h3>
+
+            </div>
+
+
+            <div
+                id="categorias"
+                class="categorias"
+            >
+
+                <!--
+                    Las categorías se cargarán
+                    automáticamente desde Supabase.
+                -->
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =================================================
+             PRODUCTOS
+        ================================================== -->
+
+        <section class="seccion-productos">
+
+            <div class="encabezado-productos">
+
+                <div>
+
+                    <span>
+                        NUESTRA COLECCIÓN
+                    </span>
+
+                    <h3>
+                        Productos
+                    </h3>
+
+                </div>
+
+
+                <span
+                    id="contadorProductos"
+                    class="contador-productos"
+                >
+                    0 productos
+                </span>
+
+            </div>
+
+
+            <div
+                id="productos"
+                class="productos"
+            >
+
+                <!--
+                    Los productos serán cargados
+                    desde Supabase.
+                -->
+
+            </div>
+
+
+            <div
+                id="sinResultados"
+                class="sin-resultados oculto"
+            >
+
+                <i class="fa-solid fa-magnifying-glass"></i>
+
+                <h3>
+                    No encontramos productos
+                </h3>
+
+                <p>
+                    Intenta buscar con otro nombre o categoría.
+                </p>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+
+    <!-- =====================================================
+         MODAL — DETALLE DEL PRODUCTO
+    ====================================================== -->
+
+    <div
+        id="modalProducto"
+        class="modal"
+        aria-hidden="true"
+    >
+
+        <div class="modal-fondo"></div>
+
+
+        <div class="modal-contenido">
+
+            <button
+                id="btnCerrarModal"
+                class="btn-cerrar-modal"
+                aria-label="Cerrar"
+            >
+
+                <i class="fa-solid fa-xmark"></i>
+
+            </button>
+
+
+            <div
+                id="detalleProducto"
+                class="detalle-producto"
+            >
+
+                <!--
+                    El detalle se generará
+                    desde JavaScript.
+                -->
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+
+    <!-- =====================================================
+         BOTÓN FLOTANTE WHATSAPP
+    ====================================================== -->
+
+    <a
+        href="https://wa.me/59175685568"
+        target="_blank"
+        class="whatsapp-flotante"
+        aria-label="Contactar por WhatsApp"
+    >
+
+        <i class="fa-brands fa-whatsapp"></i>
+
+    </a>
+
+
+
+    <!-- =====================================================
+         PIE DE PÁGINA
+    ====================================================== -->
+
+    <footer class="footer">
+
+        <div class="footer-logo">
+            Fragancias Elegantes
+        </div>
+
+        <p>
+            Perfumes y productos seleccionados para ti.
+        </p>
+
+        <span>
+            © 2026 Fragancias Elegantes
+        </span>
+
+
+    </footer>
+
+
+
+    <!-- =====================================================
+         SCRIPTS
+    ====================================================== -->
+
+    <!-- Supabase -->
+    <script
+        src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"
+    ></script>
+
+
+    <!-- Conexión Supabase -->
+    <script src="js/supabase.js"></script>
+
+
+    <!-- Aplicación -->
+    <script src="js/app.js"></script>
+
+</body>
+</html>
+
