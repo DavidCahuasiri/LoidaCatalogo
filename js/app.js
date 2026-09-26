@@ -845,11 +845,17 @@ function formatearPrecio(precio) {
 
 
     if (isNaN(numero)) {
-        return "0.00";
+        return "0";
     }
 
 
-    return numero.toFixed(2);
+    return numero.toLocaleString(
+        "es-BO",
+        {
+            minimumFractionDigits: 0,
+            maximumFractionDigits: 2
+        }
+    );
 
 }
 
